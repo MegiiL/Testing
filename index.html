@@ -26,9 +26,9 @@
             transform: translate(-50%, -50%);
             width: 80%; /* Keep the welcome screen smaller than the canvas */
             max-width: 500px;
-            height: 70vw; /* Keep the welcome screen smaller than the canvas */
-            max-height: 80vw;
-            padding: 20px;
+            height: auto;
+            max-height: 50%; /* Ensure the welcome screen is always smaller than the canvas */
+            padding: 10px;
             background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
             border-radius: 10px;
             text-align: center;
@@ -36,23 +36,23 @@
         }
 
         /* Responsive text */
-        #welcomeScreen h1, #welcomeScreen h2 {
-            font-size: 4vw; /* Responsive font size */
+        #welcomeScreen h1 {
+            font-size: 6vw; /* Make font size relative to viewport width */
+        }
+
+        #welcomeScreen h2 {
+            font-size: 4vw;
         }
 
         #welcomeScreen ul {
             list-style-type: none;
             padding: 0;
-        }
-
-        #welcomeScreen li {
-            font-size: 3vw; /* Responsive font size for instructions */
+            font-size: 3vw;
         }
 
         #playButton {
             font-size: 4vw;
-            padding: 10px 20px;
-            margin-top: 20px;
+            padding: 8px 16px;
             background-color: #007BFF;
             color: white;
             border: none;
@@ -63,7 +63,6 @@
         #playButton:hover {
             background-color: #0056b3;
         }
-
 
         /* Full-page view and centering */
         html, body {
@@ -106,5 +105,4 @@
     </div>
 </body>
 </html>
-
 
