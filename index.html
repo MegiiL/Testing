@@ -23,8 +23,8 @@
             position: relative; /* Relative container to contain canvas and welcome screen */
             width: 100vw; /* Full width for smaller screens */
             max-width: 600px; /* Ensure container doesn't exceed 600px */
-            height: 70vw; /* Height proportional to width */
-            max-height: 80vh; /* Limit height to avoid scrolling */
+            height: 50vw; /* Height proportional to width */
+            max-height: 50vh; /* Limit height to avoid scrolling */
             margin: 0 auto; /* Center the container */
             background-color: black;
         }
@@ -38,6 +38,8 @@
             transform: translate(-50%, -50%);
             width: 80%; /* Keep the welcome screen smaller than the canvas */
             max-width: 500px;
+            height: 50vw; /* Height proportional to width */
+            max-height: 50vh; /* Limit height to avoid scrolling */
             padding: 20px;
             background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
             border-radius: 10px;
@@ -74,18 +76,6 @@
             background-color: #0056b3;
         }
 
-        /* For larger screens, set canvas width to 600px */
-        @media (min-width: 601px) {
-            #canvasContainer {
-                width: 600px; /* Fixed width on larger screens */
-                max-height: 80vh;
-            }
-
-            #welcomeScreen {
-                width: 60%; /* Make welcome screen smaller on larger screens */
-                max-height: 80vh;
-            }
-        }
 
         /* Full-page view and centering */
         html, body {
