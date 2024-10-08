@@ -6,7 +6,7 @@
     <title>Game</title>
   
     <style>
-        canvas {
+       canvas {
     display: block;
     margin: 0 auto;
     background: black;
@@ -23,10 +23,10 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 85vw; /* Make sure it's smaller than canvas */
-    max-width: 550px; /* Slightly smaller than canvas */
-    height: 50vw; /* Keep the welcome screen's height smaller */
-    max-height: 50vw; /* Ensure the height fits inside canvas */
+    width: 85vw; /* Smaller than canvas */
+    max-width: 550px;
+    height: 45vw; /* Proportional to the width */
+    max-height: 60vh; /* Keep height relative to the canvas */
     padding: 10px;
     background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
     border-radius: 10px;
@@ -34,26 +34,26 @@
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Ensure good spacing of internal elements */
+    justify-content: space-between;
 }
 
 /* Responsive text */
 #welcomeScreen h1 {
-    font-size: 4vw; /* Responsive font size */
+    font-size: 3vw; /* Responsive font size */
 }
 
 #welcomeScreen h2 {
-    font-size: 3vw;
+    font-size: 2.5vw;
 }
 
 #welcomeScreen ul {
     list-style-type: none;
     padding: 0;
-    font-size: 2.5vw; /* Make the text smaller */
+    font-size: 2vw; /* Make the text smaller */
 }
 
 #playButton {
-    font-size: 3vw;
+    font-size: 2.5vw;
     padding: 5px 10px;
     background-color: #007BFF;
     color: white;
@@ -76,6 +76,7 @@ html, body {
     justify-content: center;
     background-color: #f0f0f0;
 }
+
 
 
     </style>
