@@ -6,19 +6,24 @@
     <title>Game</title>
   
     <style>
-        /* Mobile-first style for canvas */
-        canvas {
-            display: block;
-            margin: 0 auto;
-            background: black;
-            width: 100vw; /* Full width for devices 600px and smaller */
-            max-width: 600px; /* Ensure canvas doesn't exceed 600px */
-            height: 70vw; /* Proportional height (rectangle shape) */
-            max-height: 80vh; /* Limit height to 80% of viewport to avoid scrolling */
-            position: relative; /* Set position relative to allow absolute positioning inside */
+        /* Mobile-first style for canvas and container */
+        #canvasContainer {
+            position: relative; /* Relative container to contain canvas and welcome screen */
+            width: 100vw; /* Full width for smaller screens */
+            max-width: 600px; /* Ensure container doesn't exceed 600px */
+            height: 70vw; /* Height proportional to width */
+            max-height: 80vh; /* Limit height to avoid scrolling */
+            margin: 0 auto; /* Center the container */
+            background-color: black;
         }
 
-        /* Welcome screen overlay */
+        canvas {
+            width: 100%; /* Canvas occupies full width of container */
+            height: 100%; /* Canvas fills the container */
+            display: block;
+        }
+
+        /* Welcome screen overlay inside container */
         #welcomeScreen {
             position: absolute;
             top: 50%;
@@ -62,6 +67,17 @@
             background-color: #0056b3;
         }
 
+        /* For larger screens, set canvas width to 600px */
+        @media (min-width: 601px) {
+            #canvasContainer {
+                width: 600px; /* Fixed width on larger screens */
+                height: calc(600px * 16 / 9); /* Maintain rectangle aspect ratio */
+            }
+
+            #welcomeScreen {
+                width: 60%; /* Make welcome screen smaller on larger screens */
+            }
+        }
 
         /* Full-page view and centering */
         html, body {
@@ -77,32 +93,33 @@
     </style>
 </head>
 <body>
-    <canvas id="pong"></canvas>
+    <div id="canvasContainer">
+        <canvas id="pong"></canvas>
 
-    <!-- Initial welcome screen -->
-    <div id="welcomeScreen">
-        <h1>Welcome to Pong!</h1>
-        
-        <div id="instructionsWrapper">
-            <div id="rules">
-                <h2>Rules:</h2>
-                <ul>
-                    <li>- 3 lives in total</li>
-                    <li>- Lose all 3, game over</li>
-                    <li>- Pause at any time</li>
-                </ul>
+        <!-- Initial welcome screen -->
+        <div id="welcomeScreen">
+            <h1>Welcome to Pong!</h1>
+            
+            <div id="instructionsWrapper">
+                <div id="rules">
+                    <h2>Rules:</h2>
+                    <ul>
+                        <li>- 3 lives in total</li>
+                        <li>- Lose all 3, game over</li>
+                        <li>- Pause at any time</li>
+                    </ul>
+                </div>
+                <div id="moves">
+                    <h2>Moves:</h2>
+                    <ul>
+                        <li>- Desktop: A/D or arrow keys</li>
+                        <li>- Mobile: Drag the paddle</li>
+                    </ul>
+                </div>
             </div>
-            <div id="moves">
-                <h2>Moves:</h2>
-                <ul>
-                    <li>- Desktop: A/D or arrow keys</li>
-                    <li>- Mobile: Drag the paddle</li>
-                </ul>
-            </div>
+            <button id="playButton">Play</button>
         </div>
-        <button id="playButton">Play</button>
     </div>
 </body>
 </html>
-
 
