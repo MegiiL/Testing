@@ -6,7 +6,7 @@ let gameStarted = false;  // Flag to control when the game starts
 const user = {
     x: canvas.width / 2 - 50,
     y: canvas.height - 5,
-    width: 100,
+    width: 80,
     height: 2,
     color: "WHITE",
     score: 0,
@@ -17,7 +17,7 @@ const user = {
 const com = {
     x: canvas.width / 2 - 50,
     y: 5,
-    width: 100,
+    width: 80,
     height: 2,
     color: "WHITE",
     score: 0,
