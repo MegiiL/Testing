@@ -7,21 +7,29 @@
   
     <style>
         /* Mobile-first style for canvas and container */
+
+         /* Mobile-first style for canvas */
+        canvas {
+            display: block;
+            margin: 0 auto;
+            background: black;
+            width: 100vw; /* Full width for devices 600px and smaller */
+            max-width: 600px; /* Ensure canvas doesn't exceed 600px */
+            height: 70vw; /* Proportional height (rectangle shape) */
+            max-height: 80vh; /* Limit height to 80% of viewport to avoid scrolling */
+            position: relative; /* Set position relative to allow absolute positioning inside */
+        }
         #canvasContainer {
             position: relative; /* Relative container to contain canvas and welcome screen */
             width: 100vw; /* Full width for smaller screens */
-            max-width: 600px; /* Ensure container doesn't exceed 600px */
-            height: 70vw; /* Height proportional to width */
-            max-height: 80vh; /* Limit height to avoid scrolling */
+            max-width: 400px; /* Ensure container doesn't exceed 600px */
+            height: 60vw; /* Height proportional to width */
+            max-height: 70vh; /* Limit height to avoid scrolling */
             margin: 0 auto; /* Center the container */
             background-color: black;
         }
 
-        canvas {
-            width: 100%; /* Canvas occupies full width of container */
-            height: 100%; /* Canvas fills the container */
-            display: block;
-        }
+        
 
         /* Welcome screen overlay inside container */
         #welcomeScreen {
