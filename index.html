@@ -9,11 +9,11 @@
         /* Mobile-first style for canvas */
         canvas {
             display: block;
-            margin: 0 auto;
+            margin: 0; /* Remove any default margin */
             background: black;
-            width: 100%; /* Full width of the screen */
+            width: 100vw; /* Occupy the full viewport width */
             max-width: 600px; /* Maximum width of 600px */
-            height: 70vw; /* Set height as 70% of viewport width to maintain rectangle shape */
+            height: 70vw; /* Set height as 70% of the viewport width for a rectangle shape */
             max-height: 80vh; /* Limit height to 80% of the viewport height to avoid scrolling */
         }
 
@@ -41,3 +41,4 @@
     <canvas id="pong"></canvas>
 </body>
 </html>
+
