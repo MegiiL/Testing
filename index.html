@@ -19,21 +19,22 @@
         }
 
         /* Welcome screen overlay */
-        #welcomeScreen {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-           width: 100vw; /* Full width for devices 600px and smaller */
-            max-width: 600px; /* Ensure canvas doesn't exceed 600px */
-            height: 70vw; /* Proportional height (rectangle shape) */
-            max-height: 80vh; /* Limit height to 80% of viewport to avoid scrolling */
-            padding: 10px;
-            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-        }
+#welcomeScreen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90vw; /* Make sure it's smaller than canvas */
+    max-width: 580px; /* Slightly smaller than canvas */
+    height: auto; /* Adjust height automatically */
+    max-height: 70vw; /* Keep it proportional */
+    padding: 5px; /* Smaller padding to avoid growing larger */
+    box-sizing: border-box; /* Ensure padding is included within the width/height */
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
 
         /* Responsive text */
         #welcomeScreen h1 {
