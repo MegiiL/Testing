@@ -79,7 +79,7 @@ function drawNet() {
 // Draw the score
 function drawText(text, x, y, color) {
     context.fillStyle = color;
-    context.font = "35px Arial";
+    context.font = "15px Arial";
     context.fillText(text, x, y);
 }
 
@@ -101,7 +101,7 @@ function render() {
     drawRect(user.x, user.y, user.width, user.height, user.color);
     drawRect(com.x, com.y, com.width, com.height, com.color);
     drawCircle(ball.x, ball.y, ball.radius, ball.color);
-    drawText(user.score, canvas.width - 90, canvas.height - 50, "WHITE");
+    drawText(user.score, canvas.width - 90, canvas.height/2 - 50, "WHITE");
     drawText(com.score, canvas.width - 90, 50, "WHITE");
     drawHearts();
 }
