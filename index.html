@@ -6,7 +6,7 @@
     <title>Game</title>
   
     <style>
-       canvas {
+      canvas {
     display: block;
     margin: 0 auto;
     background: black;
@@ -25,7 +25,7 @@
     transform: translate(-50%, -50%);
     width: 85vw; /* Smaller than canvas */
     max-width: 550px;
-    height: 45vw; /* Proportional to the width */
+    height: auto; /* Allow automatic height based on content */
     max-height: 60vh; /* Keep height relative to the canvas */
     padding: 10px;
     background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
@@ -40,10 +40,12 @@
 /* Responsive text */
 #welcomeScreen h1 {
     font-size: 3vw; /* Responsive font size */
+    margin: 0; /* Remove default margin */
 }
 
 #welcomeScreen h2 {
     font-size: 2.5vw;
+    margin: 10px 0; /* Add margin for spacing */
 }
 
 #welcomeScreen ul {
@@ -52,7 +54,6 @@
     font-size: 2vw; /* Make the text smaller */
 }
 
-/* Updated play button styles */
 #playButton {
     font-size: 2.5vw;
     padding: 8px 15px; /* Slightly larger padding */
@@ -78,7 +79,6 @@ html, body {
     justify-content: center;
     background-color: #f0f0f0;
 }
-
 
     </style>
 </head>
