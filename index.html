@@ -6,75 +6,77 @@
     <title>Game</title>
   
     <style>
-        /* Mobile-first style for canvas */
         canvas {
-            display: block;
-            margin: 0 auto;
-            background: black;
-            width: 100vw; /* Full width for devices 600px and smaller */
-            max-width: 600px; /* Ensure canvas doesn't exceed 600px */
-            height: 70vw; /* Proportional height (rectangle shape) */
-            max-height: 80vh; /* Limit height to 80% of viewport to avoid scrolling */
-            position: relative; /* Set position relative to allow absolute positioning inside */
-        }
+    display: block;
+    margin: 0 auto;
+    background: black;
+    width: 100vw; /* Full width for devices 600px and smaller */
+    max-width: 600px; /* Ensure canvas doesn't exceed 600px */
+    height: 70vw; /* Proportional height (rectangle shape) */
+    max-height: 80vh; /* Limit height to 80% of viewport */
+    position: relative; /* Set position relative to allow absolute positioning inside */
+}
 
-        /* Welcome screen overlay */
+/* Welcome screen overlay */
 #welcomeScreen {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 90vw; /* Make sure it's smaller than canvas */
-    max-width: 580px; /* Slightly smaller than canvas */
-    height: auto; /* Adjust height automatically */
-    max-height: 70vw; /* Keep it proportional */
-    padding: 5px; /* Smaller padding to avoid growing larger */
-    box-sizing: border-box; /* Ensure padding is included within the width/height */
+    width: 85vw; /* Make sure it's smaller than canvas */
+    max-width: 550px; /* Slightly smaller than canvas */
+    height: 50vw; /* Keep the welcome screen's height smaller */
+    max-height: 50vw; /* Ensure the height fits inside canvas */
+    padding: 10px;
     background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
     border-radius: 10px;
     text-align: center;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensure good spacing of internal elements */
 }
 
-        /* Responsive text */
-        #welcomeScreen h1 {
-            font-size: 6vw; /* Make font size relative to viewport width */
-        }
+/* Responsive text */
+#welcomeScreen h1 {
+    font-size: 4vw; /* Responsive font size */
+}
 
-        #welcomeScreen h2 {
-            font-size: 4vw;
-        }
+#welcomeScreen h2 {
+    font-size: 3vw;
+}
 
-        #welcomeScreen ul {
-            list-style-type: none;
-            padding: 0;
-            font-size: 3vw;
-        }
+#welcomeScreen ul {
+    list-style-type: none;
+    padding: 0;
+    font-size: 2.5vw; /* Make the text smaller */
+}
 
-        #playButton {
-            font-size: 4vw;
-            padding: 8px 16px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+#playButton {
+    font-size: 3vw;
+    padding: 5px 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
-        #playButton:hover {
-            background-color: #0056b3;
-        }
+#playButton:hover {
+    background-color: #0056b3;
+}
 
-        /* Full-page view and centering */
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #f0f0f0;
-        }
+/* Full-page view and centering */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+}
+
 
     </style>
 </head>
