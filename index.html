@@ -13,18 +13,18 @@
             background: black;
             width: 100%; /* Take up full width of the screen */
             max-width: 600px; /* Limit to 600px on larger screens */
-            height: auto; /* Adjust height based on aspect ratio */
+            height: calc(100vw * 16 / 9); /* Make height proportional to width, simulating mobile rectangle */
+            max-height: calc(600px * 16 / 9); /* For larger screens, maintain the aspect ratio */
         }
 
-        /* For larger screens (like desktop), simulate mobile format */
+        /* Simulate mobile format for larger screens */
         @media (min-width: 601px) {
             body {
-                /* Add some padding or margins if needed */
                 padding: 20px;
             }
         }
 
-        /* To make the page fill the full viewport height */
+        /* Full-page view and centering */
         html, body {
             height: 100%;
             margin: 0;
@@ -32,7 +32,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: #f0f0f0; /* Light background for better contrast */
+            background-color: #f0f0f0;
         }
 
     </style>
