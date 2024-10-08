@@ -4,7 +4,7 @@ let gameStarted = false;  // Flag to control when the game starts
 
 // User paddle
 const user = {
-    x: canvas.width / 2 - 50 / 2; // Center user paddle
+    x: canvas.width / 2 - 25; // Center user paddle
     y: canvas.height - 5,
     width: 50,
     height: 2,
@@ -15,7 +15,7 @@ const user = {
 
 // Computer paddle
 const com = {
-    x:  canvas.width / 2 - 50 / 2; // Center user paddle
+    x:  canvas.width / 2 - 25; // Center user paddle
     y: 2.5,
     width: 50,
     height: 2,
