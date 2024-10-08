@@ -28,7 +28,7 @@
     height: auto; /* Allow automatic height based on content */
     max-height: 60vh; /* Keep height relative to the canvas */
     padding: 10px;
-    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+    background-color: black;
     border-radius: 10px;
     text-align: center;
     box-sizing: border-box;
@@ -39,34 +39,38 @@
 
 /* Responsive text */
 #welcomeScreen h1 {
+    color: white;
     font-size: 3vw; /* Responsive font size */
     margin: 0; /* Remove default margin */
 }
 
 #welcomeScreen h2 {
+    color: white;
     font-size: 2.5vw;
     margin: 10px 0; /* Add margin for spacing */
 }
 
 #welcomeScreen ul {
+    color: white;
     list-style-type: none;
     padding: 0;
     font-size: 2vw; /* Make the text smaller */
 }
 
 #playButton {
-    font-size: 2.5vw;
-    padding: 8px 15px; /* Slightly larger padding */
-    background-color: #007BFF;
+    font-size: 1em;
+    padding: 8px 8px; /* Slightly larger padding */
     color: white;
+    background-color: #444;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     margin-top: 15px; /* Ensure there's some space above */
+    border-radius: 5px; /* Rounded edges */
 }
 
 #playButton:hover {
-    background-color: #0056b3;
+    background-color: #e17373eb;
 }
 
 /* Full-page view and centering */
