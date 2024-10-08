@@ -11,13 +11,13 @@
             display: block;
             margin: 0 auto;
             background: black;
-            width: 100%; /* Take up full width of the screen */
-            max-width: 600px; /* Limit to 600px on larger screens */
-            height: calc(100vw * 16 / 9); /* Make height proportional to width, simulating mobile rectangle */
-            max-height: calc(600px * 16 / 9); /* For larger screens, maintain the aspect ratio */
+            width: 100%; /* Full width of the screen */
+            max-width: 600px; /* Maximum width of 600px */
+            height: 70vw; /* Set height as 70% of viewport width to maintain rectangle shape */
+            max-height: 80vh; /* Limit height to 80% of the viewport height to avoid scrolling */
         }
 
-        /* Simulate mobile format for larger screens */
+        /* For larger screens, simulate mobile format */
         @media (min-width: 601px) {
             body {
                 padding: 20px;
