@@ -78,11 +78,12 @@
         @media (min-width: 601px) {
             #canvasContainer {
                 width: 600px; /* Fixed width on larger screens */
-                height: calc(600px * 16 / 9); /* Maintain rectangle aspect ratio */
+                max-height: 80vh;
             }
 
             #welcomeScreen {
                 width: 60%; /* Make welcome screen smaller on larger screens */
+                max-height: 80vh;
             }
         }
 
