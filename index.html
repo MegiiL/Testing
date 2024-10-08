@@ -6,9 +6,7 @@
     <title>Game</title>
   
     <style>
-        /* Mobile-first style for canvas and container */
-
-         /* Mobile-first style for canvas */
+        /* Mobile-first style for canvas */
         canvas {
             display: block;
             margin: 0 auto;
@@ -19,18 +17,8 @@
             max-height: 80vh; /* Limit height to 80% of viewport to avoid scrolling */
             position: relative; /* Set position relative to allow absolute positioning inside */
         }
-       #canvasContainer {
-            position: relative; /* Relative container to contain canvas and welcome screen */
-            width: 100vw; /* Full width for smaller screens */
-            max-width: 600px; /* Ensure container doesn't exceed 600px */
-            height: 50vw; /* Height proportional to width */
-            max-height: 50vh; /* Limit height to avoid scrolling */
-            margin: 0 auto; /* Center the container */
-            background-color: black;
-        }
-        
 
-        /* Welcome screen overlay inside container */
+        /* Welcome screen overlay */
         #welcomeScreen {
             position: absolute;
             top: 50%;
@@ -38,8 +26,6 @@
             transform: translate(-50%, -50%);
             width: 80%; /* Keep the welcome screen smaller than the canvas */
             max-width: 500px;
-            height: 50vw; /* Height proportional to width */
-            max-height: 50vh; /* Limit height to avoid scrolling */
             padding: 20px;
             background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
             border-radius: 10px;
@@ -91,33 +77,32 @@
     </style>
 </head>
 <body>
-    <div id="canvasContainer">
-        <canvas id="pong"></canvas>
+    <canvas id="pong"></canvas>
 
-        <!-- Initial welcome screen -->
-        <div id="welcomeScreen">
-            <h1>Welcome to Pong!</h1>
-            
-            <div id="instructionsWrapper">
-                <div id="rules">
-                    <h2>Rules:</h2>
-                    <ul>
-                        <li>- 3 lives in total</li>
-                        <li>- Lose all 3, game over</li>
-                        <li>- Pause at any time</li>
-                    </ul>
-                </div>
-                <div id="moves">
-                    <h2>Moves:</h2>
-                    <ul>
-                        <li>- Desktop: A/D or arrow keys</li>
-                        <li>- Mobile: Drag the paddle</li>
-                    </ul>
-                </div>
+    <!-- Initial welcome screen -->
+    <div id="welcomeScreen">
+        <h1>Welcome to Pong!</h1>
+        
+        <div id="instructionsWrapper">
+            <div id="rules">
+                <h2>Rules:</h2>
+                <ul>
+                    <li>- 3 lives in total</li>
+                    <li>- Lose all 3, game over</li>
+                    <li>- Pause at any time</li>
+                </ul>
             </div>
-            <button id="playButton">Play</button>
+            <div id="moves">
+                <h2>Moves:</h2>
+                <ul>
+                    <li>- Desktop: A/D or arrow keys</li>
+                    <li>- Mobile: Drag the paddle</li>
+                </ul>
+            </div>
         </div>
+        <button id="playButton">Play</button>
     </div>
 </body>
 </html>
+
 
