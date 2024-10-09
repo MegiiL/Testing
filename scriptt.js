@@ -95,7 +95,7 @@ function drawHearts() {
     const heartSize = 10;  // Heart size
 
     for (let i = 0; i < user.hearts; i++) {
-        drawHeart(startX + i * (heartSize + 12), startY, heartSize, "red");  // Adjusted spacing between hearts
+        drawHeart(startX + i * 12, startY, heartSize, "red");  // Adjusted spacing between hearts (12 pixels)
     }
 }
 
@@ -106,8 +106,8 @@ function render() {
     drawRect(user.x, user.y, user.width, user.height, user.color);
     drawRect(com.x, com.y, com.width, com.height, com.color);
     drawCircle(ball.x, ball.y, ball.radius, ball.color);
-    drawText(user.score, canvasWidth - 100, canvasHeight - 50, "WHITE"); // Moved user score further to the right
-    drawText(com.score, canvasWidth - 100, 50, "WHITE"); // Moved computer score further to the right
+    drawText(user.score, canvasWidth - 70, canvasHeight - 50, "WHITE"); // Moved user score further to the right
+    drawText(com.score, canvasWidth - 70, 50, "WHITE"); // Moved computer score further to the right
     drawHearts();
 }
 
@@ -125,4 +125,3 @@ document.getElementById('playButton').addEventListener('click', function() {
     gameStarted = true;
     requestAnimationFrame(gameLoop);
 });
-
