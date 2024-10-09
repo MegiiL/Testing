@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,97 +6,146 @@
     <title>Game</title>
   
     <style>
-     
-    canvas {
-    display: block;
-    margin: 0 auto;
-    background: black;
-    width: 100vw; /* Full width for devices 600px and smaller */
-    max-width: 600px; /* Ensure canvas doesn't exceed 600px */
-    height: calc(100vw * 1.5); /* 2:3 aspect ratio for mobile */
-    max-height: 90vh; /* Limit the height to 90% of the viewport on larger screens */
-    position: relative; /* Set position relative to allow absolute positioning inside */
-    box-sizing: border-box;
-}
+        canvas {
+            display: block;
+            margin: 0 auto;
+            background: black;
+            width: 100vw;
+            max-width: 600px;
+            height: calc(100vw * 1.5);
+            max-height: 90vh;
+            position: relative;
+            box-sizing: border-box;
+        }
 
-/* Welcome screen overlay */
-#welcomeScreen {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 90vw; /* Smaller than canvas */
-    max-width: 550px;
-    height: auto; /* Allow automatic height based on content */
-    max-height: 50vh; /* Keep height relative to the canvas */
-    padding: 10px;
-    background-color: black;
-    border-radius: 10px;
-    text-align: center;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Center content vertically */
-    align-items: center; /* Center content horizontally */
-}
+        /* Welcome screen overlay */
+        #welcomeScreen {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90vw;
+            max-width: 550px;
+            height: auto;
+            max-height: 50vh;
+            padding: 10px;
+            background-color: black;
+            border-radius: 10px;
+            text-align: center;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
 
-/* Responsive text sizes for welcome message */
-#welcomeScreen h1, #welcomeScreen p {
-    font-size: 4vw; /* Responsive font size */
-    max-font-size: 24px; /* Cap the font size on larger screens */
-}
+        /* Responsive text sizes for welcome message */
+        #welcomeScreen h1, #welcomeScreen p {
+            font-size: 4vw;
+            max-font-size: 24px;
+        }
 
+        /* Responsive text */
+        #welcomeScreen h1 {
+            color: white;
+            font-size: 3vw;
+            margin: 0;
+        }
 
+        #welcomeScreen h2 {
+            color: white;
+            font-size: 2.5vw;
+            margin: 10px 0;
+        }
 
-/* Responsive text */
-#welcomeScreen h1 {
-    color: white;
-    font-size: 3vw; /* Responsive font size */
-    margin: 0; /* Remove default margin */
-}
+        #welcomeScreen ul {
+            color: white;
+            list-style-type: none;
+            padding: 0;
+            font-size: 2vw;
+        }
 
-#welcomeScreen h2 {
-    color: white;
-    font-size: 2.5vw;
-    margin: 10px 0; /* Add margin for spacing */
-}
+        #playButton {
+            font-size: 2.5vw;
+            padding: 8px 8px;
+            color: white;
+            background-color: #444;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+            width: fit-content;
+            display: flex;
+            justify-content: center;
+        }
 
-#welcomeScreen ul {
-    color: white;
-    list-style-type: none;
-    padding: 0;
-    font-size: 2vw; /* Make the text smaller */
-}
+        #playButton:hover {
+            background-color: #e17373eb;
+        }
 
-#playButton {
-    font-size: 2.5vw;
-    padding: 8px 8px; /* Slightly larger padding */
-    color: white;
-    background-color: #444;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 15px; /* Ensure there's some space above */
-    border-radius: 5px; /* Rounded edges */
-    width: fit-content; /* Allow button to fit its content */
-    display: flex; /* Ensure it can align properly */
-    justify-content: center; /* Center text inside the button */
-}
+        /* Full-page view and centering */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f0f0f0;
+        }
 
-#playButton:hover {
-    background-color: #e17373eb;
-}
+        /* Pause Button */
+        #pauseButton {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            padding: 0;
+            font-size: 1em;
+            background-color: #ffffff;
+            color: rgb(0, 0, 0);
+            border: none;
+            cursor: pointer;
+            z-index: 2;
+            width: 25px;
+            height: 25px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            line-height: 1em;
+            display: none; /* Hidden until the game starts */
+        }
 
-/* Full-page view and centering */
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #f0f0f0;
-}
+        /* Game Over Screen */
+        #gameOverScreen {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90vw;
+            max-width: 550px;
+            background-color: black;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            display: none; /* Hidden until the game ends */
+            border-radius: 10px;
+        }
+
+        #replayButton {
+            padding: 10px 10px;
+            font-size: 1em;
+            color: white;
+            background-color: #444;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+
+        #replayButton:hover {
+            background-color: #e17373eb;
+        }
     </style>
 </head>
 <body>
@@ -105,7 +154,6 @@ html, body {
     <!-- Initial welcome screen -->
     <div id="welcomeScreen">
         <h1>Welcome to Pong!</h1>
-        
         <div id="instructionsWrapper">
             <div id="rules">
                 <h2>Rules:</h2>
@@ -125,8 +173,18 @@ html, body {
         </div>
         <button id="playButton">Play</button>
     </div>
-     <script src="scriptt.js"></script>
-</body>
+
+    <!-- Pause Button -->
+    <button id="pauseButton">||</button>
+
+    <!-- Game Over Screen -->
+    <div id="gameOverScreen">
+        <h1 id="gameOverMessage">Game Over!</h1>
+        <p id="resultMessage"></p>  <!-- Placeholder for the result message -->
+        <button id="replayButton">Replay</button>
+    </div>
+
+    <script src="scriptt.js"></script>
+
+   </body>
 </html>
-
-
