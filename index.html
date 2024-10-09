@@ -40,27 +40,27 @@
     align-items: center; /* Center content horizontally */
 }
 
-/* Responsive text sizes for welcome message */
+/* Responsive text sizes */
 #welcomeScreen h1, #welcomeScreen p {
-    font-size: 4vw; /* Responsive font size based on viewport width */
-    max-font-size: 22px; /* Limit the font size on larger screens */
-    min-font-size: 16px; /* Ensure readability on smaller screens */
+    font-size: 4vw; /* Base responsive size */
+    max-font-size: 18px; /* Limit font size on larger screens */
+    min-font-size: 12px; /* Minimum size for small screens */
 }
 
 /* Adjusted heading and paragraph font sizes */
 #welcomeScreen h1 {
     color: white;
-    font-size: 5vw; /* More responsive font size */
-    max-font-size: 28px; /* Cap font size for desktop */
-    min-font-size: 18px; /* Minimum font size for mobile */
+    font-size: 5vw; /* Base responsive size */
+    max-font-size: 22px; /* Limit font size for desktop */
+    min-font-size: 14px; /* Minimum size for small mobile devices */
     margin: 0; /* Remove default margin */
 }
 
 #welcomeScreen h2 {
     color: white;
-    font-size: 4.5vw;
-    max-font-size: 24px;
-    min-font-size: 16px;
+    font-size: 4vw; /* Responsive size */
+    max-font-size: 18px; /* Limit size for desktop */
+    min-font-size: 12px; /* Minimum size for mobile */
     margin: 10px 0; /* Add margin for spacing */
 }
 
@@ -69,15 +69,15 @@
     list-style-type: none;
     padding: 0;
     font-size: 3.5vw; /* Responsive size for list items */
-    max-font-size: 20px; /* Cap font size for desktop */
-    min-font-size: 14px; /* Ensure readability on smaller screens */
+    max-font-size: 16px; /* Limit size for desktop */
+    min-font-size: 10px; /* Minimum size for small screens */
 }
 
 /* Play button styling */
 #playButton {
-    font-size: 4vw;
-    max-font-size: 20px; /* Cap font size on desktop */
-    min-font-size: 14px; /* Ensure readability on smaller screens */
+    font-size: 4vw; /* Base responsive size */
+    max-font-size: 18px; /* Limit size on larger screens */
+    min-font-size: 12px; /* Minimum size for mobile */
     padding: 8px 12px; /* Adjust padding for button size */
     color: white;
     background-color: #444;
@@ -104,7 +104,6 @@ html, body {
     justify-content: center;
     background-color: #f0f0f0;
 }
-
 
     </style>
 </head>
