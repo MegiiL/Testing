@@ -84,7 +84,7 @@ function drawNet() {
 // Draw the score
 function drawText(text, x, y, color) {
     context.fillStyle = color;
-    context.font = "15px Arial"; // Reduced font size for scores
+    context.font = "12px Arial"; // Further reduced font size for scores
     context.fillText(text, x, y);
 }
 
@@ -92,7 +92,7 @@ function drawText(text, x, y, color) {
 function drawHearts() {
     const startX = 15;  // Positioned more to the left
     const startY = canvasHeight - 30;  // Lower position closer to the bottom
-    const heartSize = 10;  // Reduced heart size
+    const heartSize = 8;  // Further reduced heart size
 
     for (let i = 0; i < user.hearts; i++) {
         drawHeart(startX + i * 10, startY, heartSize, "red");  // Reduced spacing between hearts
@@ -106,8 +106,8 @@ function render() {
     drawRect(user.x, user.y, user.width, user.height, user.color);
     drawRect(com.x, com.y, com.width, com.height, com.color);
     drawCircle(ball.x, ball.y, ball.radius, ball.color);
-    drawText(user.score, canvasWidth - 50, canvasHeight - 50, "WHITE"); // Moved user score closer to the right
-    drawText(com.score, canvasWidth - 50, 50, "WHITE"); // Moved computer score closer to the right
+    drawText(user.score, canvasWidth - 45, canvasHeight - 50, "WHITE"); // Moved user score closer to the right
+    drawText(com.score, canvasWidth - 45, 50, "WHITE"); // Moved computer score closer to the right
     drawHearts();
 }
 
@@ -125,4 +125,3 @@ document.getElementById('playButton').addEventListener('click', function() {
     gameStarted = true;
     requestAnimationFrame(gameLoop);
 });
-
