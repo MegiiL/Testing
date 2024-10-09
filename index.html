@@ -6,14 +6,14 @@
     <title>Game</title>
   
     <style>
-      canvas {
+     canvas {
     display: block;
     margin: 0 auto;
     background: black;
     width: 100vw; /* Full width for devices 600px and smaller */
     max-width: 600px; /* Ensure canvas doesn't exceed 600px */
-    height: 70vw; /* Proportional height (rectangle shape) */
-    max-height: 80vh; /* Limit height to 80% of viewport */
+    height: calc(100vw * 1.5); /* 2:3 aspect ratio (1.5 times the width) */
+    max-height: calc(600px * 1.5); /* 2:3 aspect ratio for larger screens */
     position: relative; /* Set position relative to allow absolute positioning inside */
 }
 
@@ -23,10 +23,10 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 85vw; /* Smaller than canvas */
+    width: 90vw; /* Smaller than canvas */
     max-width: 550px;
     height: auto; /* Allow automatic height based on content */
-    max-height: 60vh; /* Keep height relative to the canvas */
+    max-height: 50vh; /* Keep height relative to the canvas */
     padding: 10px;
     background-color: black;
     border-radius: 10px;
@@ -37,6 +37,7 @@
     justify-content: center; /* Center content vertically */
     align-items: center; /* Center content horizontally */
 }
+
 
 /* Responsive text */
 #welcomeScreen h1 {
