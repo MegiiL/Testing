@@ -43,7 +43,7 @@ const net = {
 const ball = {
     x: canvasWidth / 2,
     y: canvasHeight / 2,
-    radius: 5, // Adjusted ball size back to 5 pixels
+    radius: 5, // Ball size
     color: "WHITE",
     speed: 4,
     velocityX: 4,
@@ -84,7 +84,7 @@ function drawNet() {
 // Draw the score
 function drawText(text, x, y, color) {
     context.fillStyle = color;
-    context.font = "20px Arial"; // Adjusted font size for scores
+    context.font = "15px Arial"; // Reduced font size for scores
     context.fillText(text, x, y);
 }
 
@@ -92,7 +92,7 @@ function drawText(text, x, y, color) {
 function drawHearts() {
     const startX = 15;  // Positioned more to the left
     const startY = canvasHeight - 30;  // Lower position closer to the bottom
-    const heartSize = 12;  // Larger heart size
+    const heartSize = 10;  // Reduced heart size
 
     for (let i = 0; i < user.hearts; i++) {
         drawHeart(startX + i * 10, startY, heartSize, "red");  // Reduced spacing between hearts
@@ -125,3 +125,4 @@ document.getElementById('playButton').addEventListener('click', function() {
     gameStarted = true;
     requestAnimationFrame(gameLoop);
 });
+
