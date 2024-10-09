@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game</title>
-  
+
     <style>
         canvas {
             display: block;
@@ -39,33 +39,51 @@
             align-items: center;
         }
 
+        /* Game Over Screen */
+        #gameOverScreen {
+            position: absolute; /* Same positioning */
+            top: 50%;          /* Center vertically */
+            left: 50%;         /* Center horizontally */
+            transform: translate(-50%, -50%); /* Translate to center */
+            width: 90vw;       /* Match width */
+            max-width: 550px;  /* Match max width */
+            height: auto;      /* Auto height for content */
+            padding: 10px;     /* Match padding */
+            background-color: black; /* Background color */
+            text-align: center; /* Center text */
+            color: white;      /* Text color */
+            display: none;     /* Hidden until game ends */
+            border-radius: 10px; /* Rounded corners */
+            box-sizing: border-box; /* Include padding in width/height calculations */
+        }
+
         /* Responsive text sizes for welcome message */
-        #welcomeScreen h1, #welcomeScreen p {
+        #welcomeScreen h1, #welcomeScreen p, #gameOverScreen h1, #gameOverScreen p {
             font-size: 4vw;
             max-font-size: 24px;
         }
 
         /* Responsive text */
-        #welcomeScreen h1 {
+        #welcomeScreen h1, #gameOverScreen h1 {
             color: white;
             font-size: 3vw;
             margin: 0;
         }
 
-        #welcomeScreen h2 {
+        #welcomeScreen h2, #gameOverScreen h2 {
             color: white;
             font-size: 2.5vw;
             margin: 10px 0;
         }
 
-        #welcomeScreen ul {
+        #welcomeScreen ul, #gameOverScreen ul {
             color: white;
             list-style-type: none;
             padding: 0;
             font-size: 2vw;
         }
 
-        #playButton {
+        #playButton, #replayButton {
             font-size: 2.5vw;
             padding: 8px 8px;
             color: white;
@@ -79,19 +97,8 @@
             justify-content: center;
         }
 
-        #playButton:hover {
+        #playButton:hover, #replayButton:hover {
             background-color: #e17373eb;
-        }
-
-        /* Full-page view and centering */
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #f0f0f0;
         }
 
         /* Pause Button */
@@ -109,48 +116,7 @@
             width: 25px;
             height: 25px;
             border-radius: 5px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            line-height: 1em;
             display: none; /* Hidden until the game starts */
-        }
-
-  /* Game Over Screen */
-#gameOverScreen {
-    position: absolute; /* Position it in the center */
-    top: 50%;          /* Center vertically */
-    left: 50%;         /* Center horizontally */
-    transform: translate(-50%, -50%); /* Translate to center */
-    width: 90vw;       /* Match the width of Welcome Screen */
-    max-width: 550px;  /* Match the max-width of Welcome Screen */
-    height: auto;      /* Auto height for content */
-    padding: 20px;     /* Padding for content */
-    background-color: black; /* Background color */
-    text-align: center; /* Center text */
-    color: white;      /* Text color */
-    display: none;     /* Hidden until the game ends */
-    border-radius: 10px; /* Rounded corners */
-    box-sizing: border-box; /* Include padding in width/height calculations */
-    z-index: 10; /* Ensure it appears above other elements */
-}
-
-
-
-
-        #replayButton {
-            padding: 10px 10px;
-            font-size: 1em;
-            color: white;
-            background-color: #444;
-            border: none;
-            cursor: pointer;
-            margin-top: 20px;
-            border-radius: 5px;
-        }
-
-        #replayButton:hover {
-            background-color: #e17373eb;
         }
     </style>
 </head>
@@ -186,11 +152,11 @@
     <!-- Game Over Screen -->
     <div id="gameOverScreen">
         <h1 id="gameOverMessage">Game Over!</h1>
-        <p id="resultMessage"></p>  <!-- Placeholder for the result message -->
+        <p id="resultMessage"></p> <!-- Placeholder for the result message -->
         <button id="replayButton">Replay</button>
     </div>
 
     <script src="scriptt.js"></script>
+
 </body>
 </html>
-  
