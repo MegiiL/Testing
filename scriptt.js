@@ -43,7 +43,7 @@ const net = {
 const ball = {
     x: canvasWidth / 2,
     y: canvasHeight / 2,
-    radius: 4, // Ball size
+    radius: 4, // Ball size set to 4 pixels
     color: "WHITE",
     speed: 4,
     velocityX: 4,
@@ -82,9 +82,9 @@ function drawNet() {
 }
 
 // Draw the score
-function drawText(text, x, y, color) {
+function drawText(text, x, y, color, fontSize = "12px") { // Default font size updated to 12px
     context.fillStyle = color;
-    context.font = "12px Arial"; // Smaller font size for scores
+    context.font = `${fontSize} Arial`; // Allow dynamic font size
     context.fillText(text, x, y);
 }
 
@@ -95,7 +95,7 @@ function drawHearts() {
     const heartSize = 10;  // Heart size
 
     for (let i = 0; i < user.hearts; i++) {
-        drawHeart(startX + i * 12, startY, heartSize, "red");  // Adjusted spacing between hearts (12 pixels)
+        drawHeart(startX + i * 12, startY, heartSize, "red");  // Spacing between hearts (12 pixels)
     }
 }
 
@@ -105,9 +105,9 @@ function render() {
     drawNet();
     drawRect(user.x, user.y, user.width, user.height, user.color);
     drawRect(com.x, com.y, com.width, com.height, com.color);
-    drawCircle(ball.x, ball.y, ball.radius, ball.color);
-    drawText(user.score, canvasWidth - 50, canvasHeight - 50, "WHITE"); // Moved user score further to the right
-    drawText(com.score, canvasWidth - 50, 50, "WHITE"); // Moved computer score further to the right
+    drawCircle(ball.x, ball.y, ball.radius, ball.color); // Ball size 4 pixels
+    drawText(user.score, canvasWidth - 50, canvasHeight - 50, "WHITE", "12px"); // Score font size 12 pixels
+    drawText(com.score, canvasWidth - 50, 50, "WHITE", "12px"); // Score font size 12 pixels
     drawHearts();
 }
 
