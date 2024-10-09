@@ -21,7 +21,7 @@ const user = {
 // Computer paddle
 const com = {
     x: canvasWidth / 2 - 40, // Centering paddle with 80 width
-    y: 5, // Closer to the top edge of the canvas
+    y: 2.5, // Closer to the top edge of the canvas
     width: 80,  // Updated width
     height: 3,  // Updated height
     color: "WHITE",
@@ -106,8 +106,8 @@ function render() {
     drawRect(user.x, user.y, user.width, user.height, user.color);
     drawRect(com.x, com.y, com.width, com.height, com.color);
     drawCircle(ball.x, ball.y, ball.radius, ball.color); // Ball size 4 pixels
-    drawText(user.score, canvasWidth - 50, canvasHeight - 50, "WHITE", "12px"); // Score font size 12 pixels, moved to the right
-    drawText(com.score, canvasWidth - 50, 50, "WHITE", "12px"); // Score font size 12 pixels, moved to the right
+    drawText(user.score, canvasWidth - 40, canvasHeight - 50, "WHITE", "12px"); // Score font size 12 pixels, moved to the right
+    drawText(com.score, canvasWidth - 40, 50, "WHITE", "12px"); // Score font size 12 pixels, moved to the right
     drawHearts();
 }
 
