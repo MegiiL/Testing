@@ -18,8 +18,8 @@
             box-sizing: border-box;
         }
 
-        /* Welcome screen and Game Over Screen overlay */
-        #welcomeScreen, #gameOverScreen {
+        /* Welcome screen overlay */
+        #welcomeScreen {
             position: absolute;
             top: 50%;
             left: 50%;
@@ -40,7 +40,7 @@
         }
 
         /* Responsive text sizes for welcome message */
-        #welcomeScreen h1, #welcomeScreen p, #gameOverScreen h1 {
+        #welcomeScreen h1, #welcomeScreen p {
             font-size: 4vw;
             max-font-size: 24px;
         }
@@ -65,7 +65,7 @@
             font-size: 2vw;
         }
 
-        #playButton,  #replayButton {
+        #playButton {
             font-size: 2.5vw;
             padding: 8px 8px;
             color: white;
@@ -79,7 +79,7 @@
             justify-content: center;
         }
 
-        #playButton:hover,  #replayButton:hover {
+        #playButton:hover {
             background-color: #e17373eb;
         }
 
@@ -116,7 +116,36 @@
             display: none; /* Hidden until the game starts */
         }
 
-       
+        /* Game Over Screen */
+        #gameOverScreen {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90vw;
+            max-width: 550px;
+            background-color: black;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            display: none; /* Hidden until the game ends */
+            border-radius: 10px;
+        }
+
+        #replayButton {
+            padding: 10px 10px;
+            font-size: 1em;
+            color: white;
+            background-color: #444;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+
+        #replayButton:hover {
+            background-color: #e17373eb;
+        }
     </style>
 </head>
 <body>
@@ -156,6 +185,6 @@
     </div>
 
     <script src="scriptt.js"></script>
-
-   </body>
+</body>
 </html>
+  
