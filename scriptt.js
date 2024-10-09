@@ -43,7 +43,7 @@ const net = {
 const ball = {
     x: canvasWidth / 2,
     y: canvasHeight / 2,
-    radius: 5, // Ball size
+    radius: 4, // Ball size
     color: "WHITE",
     speed: 4,
     velocityX: 4,
@@ -84,7 +84,7 @@ function drawNet() {
 // Draw the score
 function drawText(text, x, y, color) {
     context.fillStyle = color;
-    context.font = "10px Arial"; // Smaller font size for scores
+    context.font = "12px Arial"; // Smaller font size for scores
     context.fillText(text, x, y);
 }
 
