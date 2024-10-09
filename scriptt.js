@@ -6,8 +6,6 @@ const canvasHeight = canvas.height;
 
 let gameStarted = false;  // Flag to control when the game starts
 
-
-
 // User paddle
 const user = {
     x: canvasWidth / 2 - 50,
@@ -82,37 +80,35 @@ function drawNet() {
     drawRect(net.x, net.y, net.width, net.height, net.color);
 }
 
-// Draw the score
+// Draw the score with smaller size
 function drawText(text, x, y, color) {
     context.fillStyle = color;
-    context.font = "35px Arial";
+    context.font = "20px Arial";  // Smaller font size for scores
     context.fillText(text, x, y);
 }
 
 // Draw the hearts
 function drawHearts() {
-    const startX = 30;
-    const startY = canvasHeight - 60;
-    const heartSize = 10;
+    const startX = 20; // Position hearts near the bottom left
+    const startY = canvasHeight - 30; // Position hearts near the bottom
+    const heartSize = 15; // Make hearts smaller
 
     for (let i = 0; i < user.hearts; i++) {
-        drawHeart(startX + i * 30, startY, heartSize, "red");
+        drawHeart(startX + i * 25, startY, heartSize, "red");
     }
 }
 
 // Render the game elements
 function render() {
-    drawRect(0, 0, canvasWidth, canvas.Height, "BLACK");
+    drawRect(0, 0, canvasWidth, canvasHeight, "BLACK"); // Black background
     drawNet();
     drawRect(user.x, user.y, user.width, user.height, user.color);
     drawRect(com.x, com.y, com.width, com.height, com.color);
     drawCircle(ball.x, ball.y, ball.radius, ball.color);
-    drawText(user.score, canvasWidth - 90, canvasHeight - 50, "WHITE");
-    drawText(com.score, canvasWidth - 90, 50, "WHITE");
+    drawText(user.score, canvasWidth - 90, canvasHeight - 30, "WHITE");  // Bottom right for user score
+    drawText(com.score, canvasWidth - 90, 30, "WHITE"); // Top right for computer score
     drawHearts();
 }
-
-
 
 // Game loop
 function gameLoop() {
@@ -125,13 +121,6 @@ function gameLoop() {
 // Start the game loop when "Play" button is clicked
 document.getElementById('playButton').addEventListener('click', function() {
     document.getElementById('welcomeScreen').style.display = 'none';
-   
-
     gameStarted = true;
     requestAnimationFrame(gameLoop);
 });
-
-
-
-   
- 
