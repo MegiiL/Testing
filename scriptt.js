@@ -9,10 +9,10 @@ let gameStarted = false;  // Flag to control when the game starts
 
 // User paddle
 const user = {
-    x: canvasWidth / 2 - 50,
+    x: canvasWidth / 2 - 40, // Centering paddle with 80 width
     y: canvasHeight - 10,
-    width: 100,
-    height: 5,
+    width: 80,  // Updated width
+    height: 3,  // Updated height
     color: "WHITE",
     score: 0,
     hearts: 3,
@@ -20,10 +20,10 @@ const user = {
 
 // Computer paddle
 const com = {
-    x: canvasWidth / 2 - 50,
-    y: 5,
-    width: 100,
-    height: 5,
+    x: canvasWidth / 2 - 40, // Centering paddle with 80 width
+    y: 5, // Updated y position to accommodate the new height
+    width: 80,  // Updated width
+    height: 3,  // Updated height
     color: "WHITE",
     score: 0,
     speed: 0.08,
@@ -125,3 +125,4 @@ document.getElementById('playButton').addEventListener('click', function() {
     gameStarted = true;
     requestAnimationFrame(gameLoop);
 });
+
