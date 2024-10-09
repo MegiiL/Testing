@@ -5,6 +5,17 @@ const context = canvas.getContext('2d');
 const canvasWidth = canvas.width;
 const canvasHeight = canvas.height;
 
+// Set the canvas for high DPI displays
+function setCanvasSize() {
+    const pixelRatio = window.devicePixelRatio || 1; // Get the device pixel ratio
+    canvas.width = canvasWidth * pixelRatio; // Set the canvas width
+    canvas.height = canvasHeight * pixelRatio; // Set the canvas height
+    context.scale(pixelRatio, pixelRatio); // Scale the context to match the pixel ratio
+}
+
+// Call this function to set the canvas size
+setCanvasSize();
+
 let gameStarted = false;  // Flag to control when the game starts
 
 // User paddle
