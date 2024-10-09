@@ -6,6 +6,9 @@ const canvasWidth = canvas.width;
 const canvasHeight = canvas.height;
 
 let gameStarted = false;  // Flag to control when the game starts
+let paused = false;  // Flag to control the paused state
+// Pause button
+const pauseButton = document.getElementById('pauseButton');
 
 // User paddle
 const user = {
@@ -49,6 +52,67 @@ const ball = {
     velocityX: 4,
     velocityY: 4,
 };
+
+// Draw rectangle (paddles, net)
+function drawRect(x, y, w, h, color) {
+    context.fillStyle = color;
+    context.fillRect(x, y, w, h);
+}
+
+// Draw circle (ball)
+function drawCircle(x, y, r, color) {
+    context.fillStyle = color;
+    context.beginPath();
+    context.arc(x, y, r, 0, Math.PI * 2, false);
+    context.closePath();
+    context.fill();
+}
+
+// Draw heart shape
+function drawHeart(x, y, size, color) {
+    context.fillStyle = color;
+    context.beginPath();
+    context.moveTo(x, y);
+    context.bezierCurveTo(x - size / 2, y - size / 2, x - size / 2, y + size / 2, x, y + size / 2);
+    context.bezierCurveTo(x + size / 2, y + size / 2, x + size / 2, y - size / 2, x, y);
+    context.closePath();
+    context.fill();
+}
+
+// Draw the net horizontally
+function drawNet() {
+    drawRect(net.x, net.y, net.width, net.height, net.color);
+}
+
+// Draw the score
+function drawText(text, x, y, color, fontSize = "12px") { // Default font size updated to 12px
+    context.fillStyle = color;
+    context.font = `${fontSize} Arial`; // Allow dynamic font size
+    context.fillText(text, x, y);
+}
+
+// Draw the hearts
+function drawHearts() {
+    const startX = 15;  // Positioned more to the left
+    const startY = canvasHeight - 30;  // Lower position closer to the bottom
+    const heartSize = 10;  // Heart size
+
+    for (let i = 0; i < user.hearts; i++) {
+        drawHeart(startX + i * 12, startY, heartSize, "red");  // Spacing between hearts (12 pixels)
+    }
+}
+
+// Render the game elements
+function render() {
+    drawRect(0, 0, canvasWidth, canvasHeight, "BLACK");
+    drawNet();
+    drawRect(user.x, user.y, user.width, user.height, user.color);
+    drawRect(com.x, com.y, com.width, com.height, com.color);
+    drawCircle(ball.x, ball.y, ball.radius, ball.color); // Ball size 4 pixels
+    drawText(user.score, canvasWidth - 40, canvasHeight - 50, "WHITE", "12px"); // Score font size 12 pixels, moved to the right
+    drawText(com.score, canvasWidth - 40, 50, "WHITE", "12px"); // Score font size 12 pixels, moved to the right
+    drawHearts();
+}
 
 // Keyboard controls
 const keys = {
@@ -125,54 +189,6 @@ function updatePaddle() {
     }
 }
 
-// Draw rectangle (paddles, net)
-function drawRect(x, y, w, h, color) {
-    context.fillStyle = color;
-    context.fillRect(x, y, w, h);
-}
-
-// Draw circle (ball)
-function drawCircle(x, y, r, color) {
-    context.fillStyle = color;
-    context.beginPath();
-    context.arc(x, y, r, 0, Math.PI * 2, false);
-    context.closePath();
-    context.fill();
-}
-
-// Draw heart shape
-function drawHeart(x, y, size, color) {
-    context.fillStyle = color;
-    context.beginPath();
-    context.moveTo(x, y);
-    context.bezierCurveTo(x - size / 2, y - size / 2, x - size / 2, y + size / 2, x, y + size / 2);
-    context.bezierCurveTo(x + size / 2, y + size / 2, x + size / 2, y - size / 2, x, y);
-    context.closePath();
-    context.fill();
-}
-
-// Draw the net horizontally
-function drawNet() {
-    drawRect(net.x, net.y, net.width, net.height, net.color);
-}
-
-// Draw the score
-function drawText(text, x, y, color, fontSize = "12px") { // Default font size updated to 12px
-    context.fillStyle = color;
-    context.font = `${fontSize} Arial`; // Allow dynamic font size
-    context.fillText(text, x, y);
-}
-
-// Draw the hearts
-function drawHearts() {
-    const startX = 15;  // Positioned more to the left
-    const startY = canvasHeight - 30;  // Lower position closer to the bottom
-    const heartSize = 10;  // Heart size
-
-    for (let i = 0; i < user.hearts; i++) {
-        drawHeart(startX + i * 12, startY, heartSize, "red");  // Spacing between hearts (12 pixels)
-    }
-}
 
 // Collision detection
 function collision(b, p) {
@@ -210,17 +226,52 @@ function resetGame() {
     resetBall();
 }
 
-// Render the game elements
-function render() {
-    drawRect(0, 0, canvasWidth, canvasHeight, "BLACK");
-    drawNet();
-    drawRect(user.x, user.y, user.width, user.height, user.color);
-    drawRect(com.x, com.y, com.width, com.height, com.color);
-    drawCircle(ball.x, ball.y, ball.radius, ball.color); // Ball size 4 pixels
-    drawText(user.score, canvasWidth - 40, canvasHeight - 50, "WHITE", "12px"); // Score font size 12 pixels, moved to the right
-    drawText(com.score, canvasWidth - 40, 50, "WHITE", "12px"); // Score font size 12 pixels, moved to the right
-    drawHearts();
+function showGameOverScreen() {
+    gameStarted = false;
+    const resultMessage = document.getElementById('resultMessage');
+    document.getElementById('gameOverScreen').style.display = 'flex';  // Show the game over screen
 }
+
+// Game loop
+function gameLoop() {
+    if (gameStarted && !paused) {
+        render();
+        update();
+        requestAnimationFrame(gameLoop);
+    }
+}
+
+// Start the game loop when "Play" button is clicked
+document.getElementById('playButton').addEventListener('click', function() {
+    document.getElementById('welcomeScreen').style.display = 'none';
+    pauseButton.style.display = 'block'; // Show the pause button
+
+    gameStarted = true;
+    paused = false;  // Ensure the game is not paused initially
+    requestAnimationFrame(gameLoop);
+});
+
+// Replay the game when the "Replay" button is clicked
+document.getElementById('replayButton').addEventListener('click', function() {
+    document.getElementById('gameOverScreen').style.display = 'none';
+    resetGame();
+    gameStarted = true;
+    paused = false;
+    requestAnimationFrame(gameLoop);
+});
+
+// Pause Button Event Listener
+pauseButton.addEventListener('click', function() {
+    paused = !paused;  // Toggle pause state
+    
+    if (paused) {
+        pauseButton.textContent = '▷';  // Change button text to 'Resume'
+    } else {
+        pauseButton.textContent = '||';  // Change button text to 'Pause'
+        requestAnimationFrame(gameLoop);  // Restart the game loop
+    }
+});
+
 
 // Update game logic
 function update() {
@@ -275,25 +326,4 @@ function update() {
     }
 }
 
-// Game loop
-function gameLoop() {
-    if (gameStarted) {
-        render();
-        update();
-        requestAnimationFrame(gameLoop);
-    }
-}
 
-// Start the game loop when "Play" button is clicked
-document.getElementById('playButton').addEventListener('click', function() {
-    document.getElementById('welcomeScreen').style.display = 'none';
-
-    gameStarted = true;
-    requestAnimationFrame(gameLoop);
-});
-
-// Placeholder for the Game Over screen function
-function showGameOverScreen() {
-    // Implement your game over logic here
-    console.log("Game Over!");
-}
