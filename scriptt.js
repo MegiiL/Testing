@@ -10,7 +10,7 @@ let gameStarted = false;  // Flag to control when the game starts
 // User paddle
 const user = {
     x: canvasWidth / 2 - 40, // Centering paddle with 80 width
-    y: canvasHeight - 8,
+    y: canvasHeight - 5, // Closer to the bottom edge of the canvas
     width: 80,  // Updated width
     height: 3,  // Updated height
     color: "WHITE",
@@ -21,7 +21,7 @@ const user = {
 // Computer paddle
 const com = {
     x: canvasWidth / 2 - 40, // Centering paddle with 80 width
-    y: 4, // Updated y position to accommodate the new height
+    y: 5, // Closer to the top edge of the canvas
     width: 80,  // Updated width
     height: 3,  // Updated height
     color: "WHITE",
@@ -106,8 +106,8 @@ function render() {
     drawRect(user.x, user.y, user.width, user.height, user.color);
     drawRect(com.x, com.y, com.width, com.height, com.color);
     drawCircle(ball.x, ball.y, ball.radius, ball.color); // Ball size 4 pixels
-    drawText(user.score, canvasWidth - 80, canvasHeight - 50, "WHITE", "12px"); // Score font size 12 pixels, moved to the right
-    drawText(com.score, canvasWidth - 80, 50, "WHITE", "12px"); // Score font size 12 pixels, moved to the right
+    drawText(user.score, canvasWidth - 65, canvasHeight - 50, "WHITE", "12px"); // Score font size 12 pixels, moved to the right
+    drawText(com.score, canvasWidth - 65, 50, "WHITE", "12px"); // Score font size 12 pixels, moved to the right
     drawHearts();
 }
 
