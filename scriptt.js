@@ -11,9 +11,9 @@ let gameStarted = false;  // Flag to control when the game starts
 // User paddle
 const user = {
     x: canvasWidth / 2 - 50,
-    y: canvasHeight - 20,
+    y: canvasHeight - 10,
     width: 100,
-    height: 10,
+    height: 5,
     color: "WHITE",
     score: 0,
     hearts: 3,
@@ -22,9 +22,9 @@ const user = {
 // Computer paddle
 const com = {
     x: canvasWidth / 2 - 50,
-    y: 10,
+    y: 5,
     width: 100,
-    height: 10,
+    height: 5,
     color: "WHITE",
     score: 0,
     speed: 0.08,
