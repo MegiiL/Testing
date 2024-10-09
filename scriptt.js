@@ -43,7 +43,7 @@ const net = {
 const ball = {
     x: canvasWidth / 2,
     y: canvasHeight / 2,
-    radius: 8,
+    radius: 5,  
     color: "WHITE",
     speed: 4,
     velocityX: 4,
@@ -81,12 +81,13 @@ function drawNet() {
     drawRect(net.x, net.y, net.width, net.height, net.color);
 }
 
-// Draw the score
+// Draw the score, smaller font and positioned more to the right
 function drawText(text, x, y, color) {
     context.fillStyle = color;
-    context.font = "20px Arial"; // Adjusted font size for scores
+    context.font = "12px Arial";  // Smaller font size
     context.fillText(text, x, y);
 }
+
 
 // Draw the hearts
 function drawHearts() {
@@ -95,7 +96,7 @@ function drawHearts() {
     const heartSize = 12;  // Larger heart size
 
     for (let i = 0; i < user.hearts; i++) {
-        drawHeart(startX + i * 10, startY, heartSize, "red");  // Reduced spacing between hearts
+        drawHeart(startX + i * 12, startY, heartSize, "red");  // Reduced spacing between hearts
     }
 }
 
@@ -106,8 +107,8 @@ function render() {
     drawRect(user.x, user.y, user.width, user.height, user.color);
     drawRect(com.x, com.y, com.width, com.height, com.color);
     drawCircle(ball.x, ball.y, ball.radius, ball.color);
-    drawText(user.score, canvasWidth - 70, canvasHeight - 50, "WHITE"); // Moved user score slightly to the right
-    drawText(com.score, canvasWidth - 70, 50, "WHITE"); // Moved computer score slightly to the right
+    drawText(user.score, canvasWidth - 40, canvasHeight - 20, "WHITE"); // Moved user score slightly to the right
+    drawText(com.score, canvasWidth - 40, 20, "WHITE"); // Moved computer score slightly to the right
     drawHearts();
 }
 
