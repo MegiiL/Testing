@@ -94,10 +94,10 @@ function drawText(text, x, y, color) {
 function drawHearts() {
     const startX = 15;  // Positioned more to the left
     const startY = canvasHeight - 25;  // Lower position closer to the bottom
-    const heartSize = 8;  // Smaller heart size
+    const heartSize = 15;  // Smaller heart size
 
     for (let i = 0; i < user.hearts; i++) {
-        drawHeart(startX + i * 15, startY, heartSize, "red");  // Reduced spacing between hearts
+        drawHeart(startX + i * 10, startY, heartSize, "pink");  // Reduced spacing between hearts
     }
 }
 
