@@ -106,8 +106,8 @@ function render() {
     drawRect(user.x, user.y, user.width, user.height, user.color);
     drawRect(com.x, com.y, com.width, com.height, com.color);
     drawCircle(ball.x, ball.y, ball.radius, ball.color);
-    drawText(user.score, canvasWidth - 70, canvasHeight - 50, "WHITE"); // Moved user score further to the right
-    drawText(com.score, canvasWidth - 70, 50, "WHITE"); // Moved computer score further to the right
+    drawText(user.score, canvasWidth - 50, canvasHeight - 50, "WHITE"); // Moved user score further to the right
+    drawText(com.score, canvasWidth - 50, 50, "WHITE"); // Moved computer score further to the right
     drawHearts();
 }
 
