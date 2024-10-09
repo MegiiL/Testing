@@ -116,23 +116,25 @@
             display: none; /* Hidden until the game starts */
         }
 
-   /* Game Over Screen */
+  /* Game Over Screen */
 #gameOverScreen {
-    position: absolute; /* Keep it absolute to position it in the center */
-    top: 50%;          /* Align it vertically */
-    left: 50%;         /* Align it horizontally */
-    transform: translate(-50%, -50%); /* Centering */
-    width: 90vw;       /* Match width to Welcome Screen */
-    max-width: 550px;  /* Match max width to Welcome Screen */
-    background-color: black; /* Background color */
+    position: absolute; /* Position it in the center */
+    top: 50%;          /* Center vertically */
+    left: 50%;         /* Center horizontally */
+    transform: translate(-50%, -50%); /* Translate to center */
+    width: 90vw;       /* Match the width of Welcome Screen */
+    max-width: 550px;  /* Match the max-width of Welcome Screen */
+    height: auto;      /* Auto height for content */
     padding: 20px;     /* Padding for content */
+    background-color: black; /* Background color */
     text-align: center; /* Center text */
     color: white;      /* Text color */
-    display: none;     /* Hidden until game ends */
+    display: none;     /* Hidden until the game ends */
     border-radius: 10px; /* Rounded corners */
     box-sizing: border-box; /* Include padding in width/height calculations */
     z-index: 10; /* Ensure it appears above other elements */
 }
+
 
 
 
