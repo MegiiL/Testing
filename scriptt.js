@@ -44,7 +44,7 @@ const net = {
 const ball = {
     x: canvasWidth / 2,
     y: canvasHeight / 2,
-    radius: 10,
+    radius: 8,
     color: "WHITE",
     speed: 4,
     velocityX: 4,
@@ -93,7 +93,7 @@ function drawText(text, x, y, color) {
 function drawHearts() {
     const startX = 30;
     const startY = canvasHeight - 60;
-    const heartSize = 20;
+    const heartSize = 10;
 
     for (let i = 0; i < user.hearts; i++) {
         drawHeart(startX + i * 30, startY, heartSize, "red");
