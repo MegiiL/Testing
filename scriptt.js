@@ -1,4 +1,3 @@
-
 const canvas = document.getElementById('pong');
 const context = canvas.getContext('2d');
 
@@ -96,7 +95,7 @@ function drawHearts() {
     const heartSize = 10;  // Slightly increased heart size
 
     for (let i = 0; i < user.hearts; i++) {
-        drawHeart(startX + i * 12, startY, heartSize, "red");  // Reduced spacing between hearts
+        drawHeart(startX + i * 12, startY, heartSize, "red");  // Adjusted spacing between hearts
     }
 }
 
@@ -107,8 +106,8 @@ function render() {
     drawRect(user.x, user.y, user.width, user.height, user.color);
     drawRect(com.x, com.y, com.width, com.height, com.color);
     drawCircle(ball.x, ball.y, ball.radius, ball.color);
-    drawText(user.score, canvasWidth - 40, canvasHeight - 50, "WHITE"); // Moved user score closer to the right
-    drawText(com.score, canvasWidth -40, 50, "WHITE"); // Moved computer score closer to the right
+    drawText(user.score, canvasWidth - 80, canvasHeight - 50, "WHITE"); // Moved user score further to the right
+    drawText(com.score, canvasWidth - 80, 50, "WHITE"); // Moved computer score further to the right
     drawHearts();
 }
 
