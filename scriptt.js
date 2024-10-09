@@ -21,7 +21,7 @@ const user = {
 // Computer paddle
 const com = {
     x: canvasWidth / 2 - 40, // Centering paddle with 80 width
-    y: 2.5, // Closer to the top edge of the canvas
+    y: 2, // Closer to the top edge of the canvas
     width: 80,  // Updated width
     height: 3,  // Updated height
     color: "WHITE",
