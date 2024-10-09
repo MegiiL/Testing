@@ -116,21 +116,25 @@
             display: none; /* Hidden until the game starts */
         }
 
-        /* Game Over Screen */
-        #gameOverScreen {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 90vw;
-            max-width: 550px;
-            background-color: black;
-            padding: 20px;
-            text-align: center;
-            color: white;
-            display: none; /* Hidden until the game ends */
-            border-radius: 10px;
-        }
+       /* Game Over Screen */
+#gameOverScreen {
+    position: fixed; /* Change to fixed to cover the entire viewport */
+    top: 0;          /* Align to the top of the viewport */
+    left: 0;         /* Align to the left of the viewport */
+    width: 100vw;    /* Full width */
+    height: 100vh;   /* Full height */
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+    padding: 20px;
+    text-align: center;
+    color: white;
+    display: none; /* Hidden until the game ends */
+    z-index: 10; /* Make sure it's above other elements */
+    justify-content: center; /* Center the content vertically */
+    align-items: center; /* Center the content horizontally */
+    flex-direction: column; /* Stack elements vertically */
+    box-sizing: border-box; /* Include padding in width/height calculations */
+}
+
 
         #replayButton {
             padding: 10px 10px;
