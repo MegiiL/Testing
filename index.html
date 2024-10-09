@@ -7,7 +7,7 @@
   
     <style>
      
-   canvas {
+    canvas {
     display: block;
     margin: 0 auto;
     background: black;
@@ -40,27 +40,24 @@
     align-items: center; /* Center content horizontally */
 }
 
-/* Responsive text sizes */
+/* Responsive text sizes for welcome message */
 #welcomeScreen h1, #welcomeScreen p {
-    font-size: 4vw; /* Base responsive size */
-    max-font-size: 18px; /* Limit font size on larger screens */
-    min-font-size: 12px; /* Minimum size for small screens */
+    font-size: 4vw; /* Responsive font size */
+    max-font-size: 24px; /* Cap the font size on larger screens */
 }
 
-/* Adjusted heading and paragraph font sizes */
+
+
+/* Responsive text */
 #welcomeScreen h1 {
     color: white;
-    font-size: 5vw; /* Base responsive size */
-    max-font-size: 22px; /* Limit font size for desktop */
-    min-font-size: 14px; /* Minimum size for small mobile devices */
+    font-size: 3vw; /* Responsive font size */
     margin: 0; /* Remove default margin */
 }
 
 #welcomeScreen h2 {
     color: white;
-    font-size: 4vw; /* Responsive size */
-    max-font-size: 18px; /* Limit size for desktop */
-    min-font-size: 12px; /* Minimum size for mobile */
+    font-size: 2.5vw;
     margin: 10px 0; /* Add margin for spacing */
 }
 
@@ -68,25 +65,21 @@
     color: white;
     list-style-type: none;
     padding: 0;
-    font-size: 3.5vw; /* Responsive size for list items */
-    max-font-size: 16px; /* Limit size for desktop */
-    min-font-size: 10px; /* Minimum size for small screens */
+    font-size: 2vw; /* Make the text smaller */
 }
 
-/* Play button styling */
 #playButton {
-    font-size: 4vw; /* Base responsive size */
-    max-font-size: 18px; /* Limit size on larger screens */
-    min-font-size: 12px; /* Minimum size for mobile */
-    padding: 8px 12px; /* Adjust padding for button size */
+    font-size: 2.5vw;
+    padding: 8px 8px; /* Slightly larger padding */
     color: white;
     background-color: #444;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     margin-top: 15px; /* Ensure there's some space above */
+    border-radius: 5px; /* Rounded edges */
     width: fit-content; /* Allow button to fit its content */
-    display: flex;
+    display: flex; /* Ensure it can align properly */
     justify-content: center; /* Center text inside the button */
 }
 
@@ -104,7 +97,6 @@ html, body {
     justify-content: center;
     background-color: #f0f0f0;
 }
-
     </style>
 </head>
 <body>
