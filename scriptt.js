@@ -1,5 +1,6 @@
 const canvas = document.getElementById('pong');
 const context = canvas.getContext('2d');
+
 // Get the width and height of the canvas
 const canvasWidth = canvas.width;
 const canvasHeight = canvas.height;
@@ -38,18 +39,16 @@ const net = {
     color: "WHITE",
 };
 
-
-// Smaller ball
+// Ball
 const ball = {
     x: canvasWidth / 2,
     y: canvasHeight / 2,
-    radius: 5,  // Smaller ball
+    radius: 8,
     color: "WHITE",
     speed: 4,
     velocityX: 4,
     velocityY: 4,
 };
-
 
 // Draw rectangle (paddles, net)
 function drawRect(x, y, w, h, color) {
@@ -82,41 +81,33 @@ function drawNet() {
     drawRect(net.x, net.y, net.width, net.height, net.color);
 }
 
-// Draw the score, smaller font and positioned more to the right
+// Draw the score
 function drawText(text, x, y, color) {
     context.fillStyle = color;
-    context.font = "18px Arial";  // Smaller font size
+    context.font = "20px Arial"; // Adjusted font size for scores
     context.fillText(text, x, y);
 }
 
-
-// Draw the hearts, making them smaller and with less space between
+// Draw the hearts
 function drawHearts() {
     const startX = 15;  // Positioned more to the left
-    const startY = canvasHeight - 25;  // Lower position closer to the bottom
-    const heartSize = 15;  // Smaller heart size
+    const startY = canvasHeight - 30;  // Lower position closer to the bottom
+    const heartSize = 12;  // Larger heart size
 
     for (let i = 0; i < user.hearts; i++) {
-        drawHeart(startX + i * 10, startY, heartSize, "pink");  // Reduced spacing between hearts
+        drawHeart(startX + i * 10, startY, heartSize, "red");  // Reduced spacing between hearts
     }
 }
 
-
-
-// Render function with smaller elements
+// Render the game elements
 function render() {
     drawRect(0, 0, canvasWidth, canvasHeight, "BLACK");
     drawNet();
     drawRect(user.x, user.y, user.width, user.height, user.color);
     drawRect(com.x, com.y, com.width, com.height, com.color);
     drawCircle(ball.x, ball.y, ball.radius, ball.color);
-    
-    // User score, smaller and more to the right
-    drawText(user.score, canvasWidth - 50, canvasHeight - 30, "WHITE");
-    
-    // Computer score, smaller and more to the right
-    drawText(com.score, canvasWidth - 50, 30, "WHITE");
-    
+    drawText(user.score, canvasWidth - 70, canvasHeight - 50, "WHITE"); // Moved user score slightly to the right
+    drawText(com.score, canvasWidth - 70, 50, "WHITE"); // Moved computer score slightly to the right
     drawHearts();
 }
 
