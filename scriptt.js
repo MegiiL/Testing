@@ -106,8 +106,8 @@ function render() {
     drawRect(user.x, user.y, user.width, user.height, user.color);
     drawRect(com.x, com.y, com.width, com.height, com.color);
     drawCircle(ball.x, ball.y, ball.radius, ball.color); // Ball size 4 pixels
-    drawText(user.score, canvasWidth - 50, canvasHeight - 50, "WHITE", "12px"); // Score font size 12 pixels
-    drawText(com.score, canvasWidth - 50, 50, "WHITE", "12px"); // Score font size 12 pixels
+    drawText(user.score, canvasWidth - 65, canvasHeight - 50, "WHITE", "12px"); // Score font size 12 pixels, moved to the right
+    drawText(com.score, canvasWidth - 65, 50, "WHITE", "12px"); // Score font size 12 pixels, moved to the right
     drawHearts();
 }
 
