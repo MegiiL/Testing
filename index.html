@@ -1,107 +1,128 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game</title>
 
+    <title>Ping Pong Game</title>
     <style>
+        /* Style for mobile-first */
         canvas {
             display: block;
             margin: 0 auto;
             background: black;
-            width: 100vw;
-            max-width: 600px;
+            width: 100%; /* Take up full width of the screen */
+            max-width: 600px; /* Limit to 600px on larger screens */
             height: calc(100vw * 1.5);
             max-height: 90vh;
-            position: relative;
-            box-sizing: border-box;
+           
         }
 
-        /* Welcome screen overlay */
-        #welcomeScreen {
+        #pongWrapper {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+    
+   height: calc(100vw * 1.5);
+            max-height: 90vh;
+    
+        }
+
+        #welcomeScreen, #gameOverScreen {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 90vw;
-            max-width: 550px;
-            height: auto;
-            max-height: 50vh;
-            padding: 10px;
-            background-color: black;
-            border-radius: 10px;
-            text-align: center;
-            box-sizing: border-box;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black; 
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            z-index: 10;
         }
 
-        /* Game Over Screen */
-        #gameOverScreen {
-            position: absolute; /* Same positioning */
-            top: 50%;          /* Center vertically */
-            left: 50%;         /* Center horizontally */
-            transform: translate(-50%, -50%); /* Translate to center */
-            width: 90vw;       /* Match width */
-            max-width: 550px;  /* Match max width */
-            height: auto;      /* Auto height for content */
-            padding: 10px;     /* Match padding */
-            background-color: black; /* Background color */
-            text-align: center; /* Center text */
-            color: white;      /* Text color */
-            display: none;     /* Hidden until game ends */
-            border-radius: 10px; /* Rounded corners */
-            box-sizing: border-box; /* Include padding in width/height calculations */
+        #instructionsWrapper {
+            display: flex; /* Use flexbox to arrange items side by side */
+            justify-content: space-between; /* Space them evenly */
+            width: 100%; /* Take full width */
+            max-width: 600px; /* Limit to 600px to fit the canvas */
+            padding: 20px; /* Add padding for spacing */
+            box-sizing: border-box; /* Include padding in width calculation */
         }
 
-        /* Responsive text sizes for welcome message */
-        #welcomeScreen h1, #welcomeScreen p, #gameOverScreen h1, #gameOverScreen p {
-            font-size: 4vw;
-            max-font-size: 24px;
-        }
-
-        /* Responsive text */
-        #welcomeScreen h1, #gameOverScreen h1 {
+        #rules, #moves {
             color: white;
-            font-size: 3vw;
-            margin: 0;
+            font-size: 1em; /* Adjust font size for readability */
+            width: 45%; /* Limit width of each section */
         }
 
-        #welcomeScreen h2, #gameOverScreen h2 {
+        #rules h2, #moves h2 {
             color: white;
-            font-size: 2.5vw;
-            margin: 10px 0;
+            font-size: 1.3em; /* Smaller headings for rules and moves */
+            text-align: center; /* Center the headings */
         }
 
-        #welcomeScreen ul, #gameOverScreen ul {
+        #rules ul, #moves ul {
+            list-style-type: none; /* Remove default list styles */
+            padding: 0; /* Remove padding from the list */
+            margin: 2px; /* Add margin for spacing */
+            text-align: center; /* Center the list items */
+        }
+
+        #welcomeScreen h1,  #gameOverScreen h1, #gameOverScreen p {
             color: white;
-            list-style-type: none;
-            padding: 0;
-            font-size: 2vw;
+            font-size: 2em;
+            text-align: center;
+            margin-top: 55px;
+            margin-bottom: 5px;
         }
 
-        #playButton, #replayButton {
-            font-size: 2.5vw;
-            padding: 8px 8px;
+        /* Responsive font size for smaller screens */
+@media (max-width: 600px) {
+    #welcomeScreen h1, #gameOverScreen h1, #gameOverScreen p {
+        font-size: 1.5em; /* Smaller size on smaller screens */
+    }
+    #rules h2, #moves h2 {
+        font-size: 1.3em; /* Smaller headings for rules and moves */
+    }
+    #rules ul li, #moves ul li {
+        font-size: 1em; /* Smaller list items for readability */
+    }
+}
+
+@media (max-width: 400px) {
+    #welcomeScreen h1, #gameOverScreen h1, #gameOverScreen p {
+        font-size: 1.2em; /* Even smaller for very small screens */
+    }
+    #rules h2, #moves h2 {
+        font-size: 1.1em; /* Even smaller headings for rules and moves */
+    }
+    #rules ul li, #moves ul li {
+        font-size: 0.9em; /* Smaller list items for better fit */
+    }
+}
+
+        #playButton,  #replayButton {
+            padding: 10px 10px;
+            font-size: 1em;
             color: white;
             background-color: #444;
             border: none;
-            border-radius: 5px;
             cursor: pointer;
-            margin-top: 15px;
-            width: fit-content;
-            display: flex;
-            justify-content: center;
+            margin-bottom: 35px;
+            border-radius: 5px; /* Rounded edges */
         }
 
-        #playButton:hover, #replayButton:hover {
-            background-color: #e17373eb;
+        #playButton:hover,  #replayButton:hover {
+            background-color: lightsteelblue;
         }
 
-        /* Pause Button */
+        #gameOverScreen {
+            display: none; /* Hidden until the game ends */
+        }
+
         #pauseButton {
             position: absolute;
             top: 15px;
@@ -113,50 +134,55 @@
             border: none;
             cursor: pointer;
             z-index: 2;
-            width: 25px;
-            height: 25px;
-            border-radius: 5px;
             display: none; /* Hidden until the game starts */
+            width: 25px;   /* Set width */
+            height: 25px;  /* Set height */
+            border-radius: 5px; /* Rounded edges instead of circular */
+            /* Center text using flexbox */
+            display: flex;
+            justify-content: center; /* Horizontally center */
+            align-items: center; /* Vertically center */
+            /* Adjust line-height to help center the text */
+            line-height: 1em;
         }
     </style>
 </head>
 <body>
-    <canvas id="pong"></canvas>
-
-    <!-- Initial welcome screen -->
-    <div id="welcomeScreen">
-        <h1>Welcome to Pong!</h1>
-        <div id="instructionsWrapper">
-            <div id="rules">
-                <h2>Rules:</h2>
-                <ul>
-                    <li>- 3 lives in total</li>
-                    <li>- Lose all 3, game over</li>
-                    <li>- Pause at any time</li>
-                </ul>
+    <div id="pongWrapper">
+        <canvas id="pong" ></canvas>
+        <!-- Initial welcome screen -->
+        <div id="welcomeScreen">
+            <h1>Welcome to Pong!</h1>
+            <div id="instructionsWrapper">
+                <div id="rules">
+                    <h2> <b> Rules: </b> </h2>
+                    <ul>
+                        <li>- Score as many points as possible </li>
+                        <li>- 3 lives in total </li>
+                        <li>- Lose all 3, GAME OVER </li>
+                        <li>- Pause at any time </li>
+                    </ul>
+                </div>
+                <div id="moves">
+                    <h2> <b> Moves: </b> </h2>
+                    <ul>
+                        <li>- Desktop: A/D or ←/→ </li>
+                        <li>- Mobile: Drag the paddle </li>
+                    </ul>
+                </div>
             </div>
-            <div id="moves">
-                <h2>Moves:</h2>
-                <ul>
-                    <li>- Desktop: A/D or arrow keys</li>
-                    <li>- Mobile: Drag the paddle</li>
-                </ul>
-            </div>
+            <button id="playButton">Play🏓</button>
         </div>
-        <button id="playButton">Play</button>
+
+        <!-- Game Over Screen -->
+        <div id="gameOverScreen">
+            <h1 id="gameOverMessage"> Game Over!</h1>
+            <p id="resultMessage"></p>  <!-- Placeholder for the result message -->
+            <button id="replayButton"> Replay↻ </button>
+        </div>
+        <!-- Pause Button -->
+        <button id="pauseButton"> || </button>
     </div>
-
-    <!-- Pause Button -->
-    <button id="pauseButton">||</button>
-
-    <!-- Game Over Screen -->
-    <div id="gameOverScreen">
-        <h1 id="gameOverMessage">Game Over!</h1>
-        <p id="resultMessage"></p> <!-- Placeholder for the result message -->
-        <button id="replayButton">Replay</button>
-    </div>
-
-    <script src="scriptt.js"></script>
-
+    <script src="script.js"></script>
 </body>
 </html>
